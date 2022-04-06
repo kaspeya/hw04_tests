@@ -56,5 +56,4 @@ class ContactURLTests(TestCase):
     def test_url_returns_404_error(self):
         """Запрос к несуществующей странице вернёт ошибку 404."""
         response = self.guest_client.get('/auth/unexisting_page/')
-        self.assertTemplateUsed(response, '404.html')
         self.assertEqual(response.status_code, 404)
