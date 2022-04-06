@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load user_filters %}
+
+{% block title %}
+  <title>Отправка сообщения администратору</title>
+{% endblock %}
+
+{% block content %}
+  <div class="card-header">
+    Форма для отправки сообщения администратору
+  </div>
+    </h1>
+      <p class="lead">
+        Пожалуйста, заполните поля.
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить форму</button>
+      </form>
+{% endblock %}
