@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+handler404 = 'core.views.page_not_found'
 urlpatterns = [
     # импорт правил из приложения posts
     path('', include('posts.urls', namespace='posts')),
