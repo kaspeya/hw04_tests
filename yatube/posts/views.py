@@ -70,25 +70,6 @@ def post_create(request):
     return render(request, 'posts/post_create.html', {'form': form})
 
 
-# @login_required
-# def post_create(request):
-# 	form = PostForm(request.POST)
-# 	if request.method == 'POST':
-# 		if form.is_valid():
-# 			text = form.cleaned_data['text']
-# 			group = form.cleaned_data['group']
-# 			author = request.user
-# 			Post.objects.create(
-# 				author=author,
-# 				text=text,
-# 				group=group,
-# 			)
-# 			return redirect('posts:profile', request.user)
-# 	else:
-# 		form = PostForm()
-# 	return render(request, 'posts/create_post.html', {'form': form})
-
-
 @login_required
 def post_edit(request, post_id):
     is_edit = True

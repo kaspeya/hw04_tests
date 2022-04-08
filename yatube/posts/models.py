@@ -13,9 +13,9 @@ class Group(models.Model):
     def __str__(self):
         return self.title
 
-        # Расширение встроенного метода save(): если поле slug не заполнено -
-        # транслитерировать в латиницу содержимое поля title и
-        # обрезать до ста знаков
+    # Расширение встроенного метода save(): если поле slug не заполнено -
+    # транслитерировать в латиницу содержимое поля title и
+    # обрезать до ста знаков
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)[:100]
@@ -41,8 +41,8 @@ class Post(models.Model):
         help_text='Группа, к которой будет относиться пост'
     )
 
-    def __str__(self):
-        return self.text
-
     class Meta:
         ordering = ['-pub_date']
+
+    def __str__(self):
+        return self.text
