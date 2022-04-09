@@ -170,8 +170,6 @@ class PostsPaginatedTests(TestCase):
     def test_page_paginated(self):
         post_count = Post.objects.count()
         page_list = self._get_page_list(post_count, constants.PAGE_LIMIT)
-        print(page_list)
-
         for page_number in range(len(page_list)):
             responses = (
                 self.authorized_client.get(reverse('posts:index')
